@@ -1,8 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-
 def leer_numero_empleados():
   print("Recuerde que si no ingresa un número mayor a 0, el código le generara error")
   nun = int(input("Ingresa el número de empleados: "))
@@ -28,7 +26,6 @@ def leer_ventas_empleados_mes():
     nov = int(input("Ingresa las vacunas del mes de Noviembre: "))
     dic = int(input("Ingresa las vacunas del mes de Diciembre: "))
     matriz.append([nombre, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic])
-
    
   return matriz
 
@@ -52,8 +49,6 @@ def ordenar_vendedores_por_ventas(matriz):
   for i in range(0, len(lis)):
     print("El vacudanor", lisnom[i], "vacuno en el año a", lisf[i], "personas")
   return [lisnom, lisf]
-  
-
 
 def calcular_cinco_vendedores(matriz):
   matriz_5 = [[],[]]
@@ -61,7 +56,6 @@ def calcular_cinco_vendedores(matriz):
     matriz_5[0].append(matriz[0][i])
     matriz_5[1].append(matriz[1][i])
   return matriz_5
-    
 
 def calcular_mes_mas_ventas(matriz):
   con = 0
@@ -70,21 +64,14 @@ def calcular_mes_mas_ventas(matriz):
     for j in range(0,len(matriz)):
       con+=matriz[j][i]
     lis.append(con)
-    
-  
-  
+  return lis
 
-def greficar_ventas_por_mes(lismes):
+def graficar_ventas_por_mes(lismes):
+
+  # Preferí poner los meses en tuplas
   meses = ['Enero', 'Febrero', 'Marzo','Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-  fig, ax = plt.subplost()
+  fig, ax = plt.subplots()
   ax.set_ylabel('Vacunas totales')
   ax.set_title('Meses')
-  plt.bar(meses, lismes)
+  plt.bar(meses, lismes, width=.5, color='orange')
   plt.show()
-
-
-#4
-
-#print(list(reversed(sorted([25,26,23,1,5,456,2,85,3]))))
-hj = ordenar_vendedores_por_ventas(leer_ventas_empleados_mes())
-print("los cinco mejores vendedores son: ", calcular_cinco_vendedores(hj)[0])
